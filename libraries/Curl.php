@@ -19,7 +19,7 @@ class Curl {
 	protected $session;             // Contains the cURL handler for a session
 	protected $url;                 // URL of the session
 	protected $options = array();   // Populates curl_setopt_array
-	protected $headers = array('X-Mashape-Key: GJnOlXFCFomshwHWO9KE1w1UgzQLp1ULNjajsnvebCSXJH7rEm');
+	protected $headers = array('X-Mashape-Key: YOUR_MASHAPE_APPLICATION_KEY_HERE');
 	public $error_code;             // Error code returned as an int
 	public $error_string;           // Error message returned as a string
 	public $info;                   // Returned after request (elapsed time, etc)
