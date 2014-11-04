@@ -41,8 +41,8 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 |SMS Wrapper Constants
 |--------------------------------------------------------------------------
 */
-define('USER_NAME',							'YOUR_USER_NAME_HERE');
-define('PASSWORD',							'YOUR_PASSWORD');
+define('USER_NAME',							'USER_NAME'); // Your username of site2sms.com
+define('PASSWORD',							'PASSWORD');  // Your password of site2sms.com
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

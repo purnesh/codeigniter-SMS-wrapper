@@ -1,25 +1,25 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Curl Class
+ * CodeIgniter SMS Wrapper Class
  *
  * Work with remote servers via cURL much easier than using the native PHP bindings.
  *
  * @package        	CodeIgniter
  * @subpackage    	Libraries
  * @category    	Libraries
- * @author        	Philip Sturgeon
- * @license         http://philsturgeon.co.uk/code/dbad-license
- * @link			http://philsturgeon.co.uk/code/codeigniter-curl
+ * @author        	Purnesh Tripathi
+ * @license        	MIT License
+ * @link		https://github.com/purnesh/codeigniter-SMS-wrapper
  */
-class Curl {
+class Sms {
 
 	protected $_ci;                 // CodeIgniter instance
 	protected $response = '';       // Contains the cURL response for debug
 	protected $session;             // Contains the cURL handler for a session
 	protected $url;                 // URL of the session
 	protected $options = array();   // Populates curl_setopt_array
-	protected $headers = array('X-Mashape-Key: YOUR_MASHAPE_APPLICATION_KEY_HERE');
+	protected $headers = array('X-Mashape-Key: YOUR_MASHAPE_KEY_HERE'); // Your Mashape API consumption key 
 	public $error_code;             // Error code returned as an int
 	public $error_string;           // Error message returned as a string
 	public $info;                   // Returned after request (elapsed time, etc)
@@ -37,6 +37,7 @@ class Curl {
 		$url AND $this->create($url);
 	}
 
+
 	public function __call($method, $arguments)
 	{
 		if (in_array($method, array('simple_get', 'simple_post', 'simple_put', 'simple_delete', 'simple_patch')))
@@ -48,6 +49,17 @@ class Curl {
 		}
 	}
 
+	/* =================================================================================
+	 * SMS METHODS
+	 * Using these methods you can make a quick SMS with one line of code.
+	 * ================================================================================= */
+
+	public function send_sms($to, $sms){
+		$sms = urlencode(substr($sms,0,144));
+		$curl_url = "https://site2sms.p.mashape.com/index.php?msg=".$sms."&phone=".$to."&pwd=".PASSWORD."&uid=".USER_NAME;
+		$result = $this->simple_get($curl_url);
+		return $result;
+	}
 	/* =================================================================================
 	 * SIMPLE METHODS
 	 * Using these methods you can make a quick and easy cURL call with one line.
@@ -391,6 +403,7 @@ class Curl {
 		$this->error_string = '';
 		$this->session = NULL;
 	}
+
 
 }
 
