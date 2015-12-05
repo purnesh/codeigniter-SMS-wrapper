@@ -14,7 +14,7 @@ Bootstrapping
 
 Installation
 ------------
-Simply copy the files in your Code Igniter installation.
+
 
 Usage
 -----
