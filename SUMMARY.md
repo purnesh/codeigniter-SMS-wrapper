@@ -1,5 +1,5 @@
 # Summary
 
-* Installation
+* [Installation](installation.md)
 * Bootstrapping
 
