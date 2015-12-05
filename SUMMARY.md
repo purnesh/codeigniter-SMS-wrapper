@@ -2,5 +2,5 @@
 
 * [Installation](installation.md)
 * [Bootstrapping](bootstrapping.md)
-* Usage
+* [Usage](usage.md)
 
